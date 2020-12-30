@@ -1,0 +1,37 @@
+{% extends "admin/base.html.twig" %}
+{% block name %}
+	<h1 class="mt-4">Category</h1>
+{% endblock %}
+{% block main %}
+	<div class="row">
+		<div class="col-12">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>Comment Id</th>
+						<th>Comment User</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for comment in comments %}
+						<tr>
+							<td>{{ comment.id }}</td>
+							<td>
+								{% for user in users %}
+									{% if user.id == comment.user.id %}
+										{{ user.name }}
+										{{ user.lastname }}
+									{% endif %}
+								{% endfor %}
+							</td>
+							<td>
+								<a href="{{ path('delete_comments', {'comment': comment.id}) }}">Delete</a>
+							</td>
+						</tr>
+					</tbody>
+				</tbody>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table></div></div>{% endblock %}

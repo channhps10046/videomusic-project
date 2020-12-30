@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block customstylesheets %}
+	<link rel="stylesheet" href="{{asset('assets/css/register.css')}}">
+{% endblock %}
+
+{% block main %}
+<div
+	class="group-login-register">
+	{# <form action="{{ path('login') }}" method="POST" class="box1"> #}
+	{{ form_start(form,{'attr': {'novalidate':'novalidate','class':'box1'}}) }}
+	<h1>Register</h1>
+	<{{form_widget(form.name,{'attr':{'placeholder':'FirstName'},'id':'validationServer01'})}} {{ form_widget(form.last_name, {'attr': {'placeholder': 'Last Name'} , 'id' : 'validationServer01' }) }} {{ form_widget(form.email, {'attr': {'placeholder': 'Email'} , 'id' : 'validationServer01' }) }} {{ form_widget(form.password.first, {'attr': {'placeholder': 'Password'} , 'id' : 'validationServer01' }) }} {{ form_widget(form.password.second, {'attr': {'placeholder': 'Confirm Password'} , 'id' : 'validationServer01' }) }} <input type="submit" name="" value="Register"> <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/> {{ form_end(form) }} {# </form> #} </div> {% endblock %}

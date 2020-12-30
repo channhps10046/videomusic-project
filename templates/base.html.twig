@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+		<link rel="stylesheet" href="{{asset('assets/css/style.css')}}"> {% block customstylesheets %}{% endblock %}
+		</head>
+		<body>
+			{% block header %}
+				<div class="nav-header">
+					<h2>VideoMucic</h2>
+
+					<div class="form-search">
+						<form method="GET" action="{{ path('search_result') }}">
+							<input name="query" type="text" class="form-search-input" placeholder="Search">
+							<button class="btn btn-search" type="submit">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</button>
+						</form>
+					</div>
+					<div class="login-info">
+						<div class="group-login-user">
+							{% if app.user %}
+								{% if is_granted('ROLE_ADMIN') %}
+									<a href="{{ path('admin') }}" class="button-info">My Account</a>
+								{% endif %}
+								<a href="{{ path('logout') }}" class="button-info">Logout</a>
+							{% endif %}
+							{% if not app.user %}
+								<a href="{{ path('register') }}" class="button-info">Register</a>
+								<a href="{{ path('login') }}" class="button-info">Login</a>
+							{% endif %}
+						</div>
+						{% if app.user %}
+							<a class="infor">
+								<img src="{{asset('assets/image/unnamed.jpg')}}" alt="">
+								<span>{{ app.user.name }}
+									{{app.user.lastname}}</span>
+							</a>
+						{% endif %}
+					</div>
+				</div>
+			{% endblock %}
+
+			{% block menu %}
+				<div class="nav">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<li class="swiper-slide active">
+								<a class="a_active" href="{{ path('index') }}">All</a>
+							</li>
+							{{ render(controller("App\\Controller\\FrontController::mainCategories")) }}
+						</div>
+					</div>
+				</div>
+			{% endblock %}
+
+			{% block main %}{% endblock %}
+
+			{% block footer %}
+				<div class="footer">
+					<h2>VideoMucic</h2>
+				</div>
+			{% endblock %}
+
+			<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+			<script src="{{asset('assets/js/swiper.js')}}"></script>
+		</body>
+	</html>
+</body></html>

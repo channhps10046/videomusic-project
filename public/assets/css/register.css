@@ -1,0 +1,76 @@
+.group-login-register {
+  background: #191919;
+  height: 80vh;
+}
+.box1 {
+  width: 500px;
+  padding: 40px;
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #191919;
+  text-align: center;
+}
+
+.box1 h1 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.box1 input[type="text"],
+.box1 input[type="password"],
+.box1 input[type="email"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  width: 400px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+.box1 input[type="text"]:focus,
+.box1 input[type="password"]:focus,
+.box1 input[type="email"]:focus {
+  border-color: #2ecc71;
+}
+
+.box1 input[type="submit"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid#2ecc71;
+  padding: 14px 40px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.box1 input[type="submit"]:hover {
+  width: 400px;
+  background-color: #2ecc71;
+}
+
+.create-account {
+  text-decoration: underline;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.create-account:hover {
+  color: #2ecc71;
+}

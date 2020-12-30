@@ -1,0 +1,31 @@
+{% extends "admin/base.html.twig" %}
+{% block main %}
+	<div class="row">
+		<div class="col-12">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>User Id</th>
+						<th>User Name</th>
+						<th>User Lastname</th>
+						<th>User Email</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for user in users %}
+						<tr>
+							<td>{{ user.id }}</td>
+							<td>{{ user.name }}</td>
+							<td>{{ user.lastname }}</td>
+							<td>{{ user.email }}</td>
+							<td>
+								<a href="{{ path('delete_user', {'id': user.id}) }}">Delete</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

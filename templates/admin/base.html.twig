@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+		<meta name="description" content=""/>
+		<meta name="author" content=""/>
+		<title>Dashboard - SB Admin</title>
+		<link href="{{ asset('assets/css/styles1.css') }}" rel="stylesheet"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+	</head>
+	<body class="sb-nav-fixed">
+		<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+			<a class="navbar-brand" href="{{ path('admin') }}">Start Bootstrap</a>
+			<button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
+				<i class="fas fa-bars"></i>
+			</button>
+			<!-- Navbar Search-->
+			<form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"></div>
+		</form>
+		<!-- Navbar-->
+		<ul class="navbar-nav ml-auto ml-md-0">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fas fa-user fa-fw"></i>
+				</a>
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+					<a class="dropdown-item" href="{{ path('logout') }}">Logout</a>
+				</div>
+			</li>
+		</ul>
+	</body>
+</html></nav><div id="layoutSidenav">
+<div id="layoutSidenav_nav">
+	<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+		<div class="sb-sidenav-menu">
+			<div class="nav">
+				<div class="sb-sidenav-menu-heading">Core</div>
+				<a class="nav-link" href="{{ path('dashboard') }}">
+					<div class="sb-nav-link-icon">
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					Dashboard
+				</a>
+				<div class="sb-sidenav-menu-heading">Interface</div>
+				<a class="nav-link collapsed" href="{{ path('category') }}">
+					<div class="sb-nav-link-icon">
+						<i class="fas fa-columns"></i>
+					</div>
+					Category
+				</a>
+
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+					<div class="sb-nav-link-icon">
+						<i class="fas fa-book-open"></i>
+					</div>
+					Video
+					<div class="sb-sidenav-collapse-arrow">
+						<i class="fas fa-angle-down"></i>
+					</div>
+				</a>
+				<div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+					<nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+						<a class="nav-link collapsed" href="{{ path('videos') }}">
+							Show Video
+						</a>
+						<a class="nav-link collapsed" href="{{ path('upload_video') }}">
+							Add Video
+						</a>
+					</nav>
+				</div>
+				<a class="nav-link" href="{{ path('comments_admin') }}">
+					<div class="sb-nav-link-icon">
+						<i class="fas fa-comments"></i>
+					</div>
+					Comments
+				</a>
+				<a class="nav-link" href="{{ path('users') }}">
+					<div class="sb-nav-link-icon">
+						<i class="fas fa-user"></i>
+					</div>
+					Users
+				</a>
+			</div>
+		</div>
+		<div class="sb-sidenav-footer">
+			<div class="small">Logged in as:</div>
+			Start Bootstrap
+		</div>
+	</nav>
+</div>
+{% block content %}
+	<div id="layoutSidenav_content">
+		<main>
+			<div class="container-fluid">
+				{% block name %}
+					<h1 class="mt-4">Admin</h1>
+				{% endblock %}
+				<ol class="breadcrumb mb-4">
+					<li class="breadcrumb-item active">Dashboard</li>
+				</ol>
+				{% block main %}{% endblock %}
+
+			</div>
+		</main>
+		<footer class="py-4 bg-light mt-auto">
+			<div class="container-fluid">
+				<div class="d-flex align-items-center justify-content-between small">
+					<div class="text-muted">Copyright &copy; Your Website 2020</div>
+					<div>
+						<a href="#">Privacy Policy</a>
+						&middot;
+						<a href="#">Terms &amp; Conditions</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+	{% block javascript %}{% endblock %}
+{% endblock %}

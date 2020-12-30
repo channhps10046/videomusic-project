@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+	<div class="main-video">
+		<div class="container">
+			<div class="row">
+				{% for video in videos %}
+					<div class="col-3">
+						<a href="{{ path('video_details', {'video': video.id}) }}">
+							<video>
+								<source src="{{video.getPath()}}" type="video/mp4">
+							</video>
+							<h3 class="video-title">{{ video.title }}
+							</h3>
+						</a>
+					</div>
+
+				{% endfor %}
+			</div>
+
+		</div>
+	</div>
+{% endblock %}

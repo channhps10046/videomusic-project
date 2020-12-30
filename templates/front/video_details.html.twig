@@ -1,0 +1,68 @@
+{% extends "base.html.twig" %}
+{% block customstylesheets %}
+	<link rel="stylesheet" href="{{asset('assets/css/details.css')}}">
+{% endblock %}
+{% block main %}
+	<div class="main-video-detail">
+		<div class="container">
+			<div class="group-video">
+				<div class="video-details">
+					<video controls>
+						<source src="{{video.path}}" type="video/mp4">
+					</video>
+					<h3 class="video-title">{{ video.title }}
+					</h3>
+
+					<div class="comment-video">
+						<form method="POST" action="{{ path('comments', {'video': video.id}) }}">
+							<div class="form-group">
+								<img src="{{asset('assets/image/unnamed.jpg')}}" alt="">
+								<div class="comments">
+									<input type="text" name="comment" class="comment-input" placeholder="Commenting publicly">
+									<div class="group-btn-comment">
+										<button class="btn-comment">COMMENT</button>
+									</div>
+								</div>
+							</div>
+						</form>
+						{% for comment in video.comments %}
+							<div class="comment-list">
+								<img src="{{asset('assets/image/unnamed.jpg')}}" alt="info">
+								<div class="list-text">
+									<p class="comment-name">{{ comment.user.name }}
+										{{ comment.user.lastname }}
+										<span class="comment-date">{{ comment.createdat|ago }}</span>
+									</p>
+									<p class="list-text">{{ comment.content }}
+									</p>
+								</div>
+							</div>
+
+						{% endfor %}
+
+					</div>
+				</div>
+				<div class="video-category">
+					<div class="row">
+						{% for video in videos %}
+							<div class="col-1">
+								<a href="{{ path('video_details', {'video': video.id}) }}">
+									<div class="cat_video">
+										<video>
+											<source src="{{video.path}}" type="video/mp4">
+										</video>
+									</div>
+									<div class="cat_title">
+										<h3 class="video-title">{{ video.title }}
+										</h3>
+									</div>
+								</a>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

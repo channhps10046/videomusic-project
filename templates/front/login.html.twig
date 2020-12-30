@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+{% block customstylesheets %}
+	<link rel="stylesheet" href="{{asset('assets/css/login.css')}}">
+{% endblock %}
+
+{% block main %}
+	<div class="group-login">
+		<form action="{{ path('login') }}" method="POST" class="box">
+			<h1>Login</h1>
+			<input type="text" name="_email" placeholder="Email">
+			<input type="password" name="_password" placeholder="Password">
+			<input type="submit" name="" value="Login">
+			<a href="{{ path('register') }}" class="create-account">create account</a>
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+		</form>
+	</div>
+
+{% endblock %}

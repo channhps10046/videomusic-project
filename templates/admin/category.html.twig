@@ -1,0 +1,52 @@
+{% extends "admin/base.html.twig" %}
+{% block main %}
+	<div class="row">
+		<div
+			class="col-6">
+			{# <form action="/action_page.php"> #}
+			{{ form_start(form, {'attr': {'novalidate':'novalidate'} }) }}
+			<div class="form-group">
+				<label for="category">Category:</label>
+				{# <input type="email" class="form-control" placeholder="Category name" id="email"> #}
+				{{ form_widget(form.name,{'attr': {'class': 'form-control' ~ is_invalid, 'placeholder': 'Category name'}, 'id': 'validationServer01' }) }}
+				<div class="invalid-feedback">
+					{{ form_errors(form.name) }}
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Add Category</button>
+			{{ form_end(form) }}
+			{# </form> #}
+		</div>
+
+		<div class="col-6">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>Category Id</th>
+						<th>Category Name</th>
+						<th>
+							Delete
+						</th>
+						<th>
+							Edit
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for category in categories %}
+						<tr>
+							<td>{{ category.id }}</td>
+							<td>{{ category.name }}</td>
+							<td>
+								<a href="{{ path('delete_category', {'id': category.id}) }}">Delete</a>
+							</td>
+							<td>
+								<a href="{{ path('edit_category', {'id': category.id}) }}">Edit</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

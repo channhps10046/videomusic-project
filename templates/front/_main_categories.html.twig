@@ -1,0 +1,38 @@
+{% for category in categories %}
+	<li class="swiper-slide">
+		<a href="{{ path('video_list', {'categoryname': category.name|lower|slugify, 'id': category.id}) }}">{{ category.name }}</a>
+	</li>
+{% endfor %}
+{# <li class="swiper-slide">
+	<a href="#">Pop</a>
+</li>
+<li class="swiper-slide">
+	<a href="#">Pop Ballad</a>
+</li>
+<li class="swiper-slide">
+	<a href="#">Rap</a>
+</li>
+<li class="swiper-slide">
+	<a href="#">HipHop</a>
+</li>
+<li class="swiper-slide">
+	<a href="#">Rock</a>
+</li>
+<li class="swiper-slide">
+	<a href="#">EDM</a>
+</li>
+<li class="swiper-slide">
+	<a href="#">Vinahouse</a>
+</li>
+<li class="swiper-slide">
+	<a href="#">Edm Tropical House</a>
+</li>
+<li class="swiper-slide">
+	<a href="#">Renmix</a>
+</li>
+<li class="swiper-slide">
+	<a href="#">Lofi</a>
+</li>
+<li class="swiper-slide">
+	<a href="#">Cover</a>
+</li> #}
